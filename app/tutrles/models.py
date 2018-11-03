@@ -19,8 +19,17 @@ class Turtle(models.Model):
         (5, 'Красная'),
         (6, 'Зеленая'),
     )
-    
+    COLORS_NAME = (
+        (1, 'white'),
+        (2, 'blue'),
+        (3, 'violet'),
+        (4, 'yellow'),
+        (5, 'red'),
+        (6, 'green'),
+    )
+    id_thurtle = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, verbose_name="Имя черепахи")
+    color_name =  models.IntegerField(choices=COLORS_NAME,  default=1, verbose_name="Цвет лат.")
     color = models.IntegerField(choices=COLORS,  default=1, verbose_name="Цвет")
 
 
@@ -48,7 +57,7 @@ class Cards(models.Model):
         (1, '1'),
         (2, '2'),
     )
-
+    cards_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, verbose_name="Название")
     color = models.IntegerField(choices=COLORS,  default=1, verbose_name="Цвет")
     diraction = models.IntegerField(choices=DIRACTION,  default=0, verbose_name="Направление")

@@ -27,6 +27,7 @@ router.register(r'cards', views.CardsViewSet)
 
 
 urlpatterns = [
+    # path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
     # path(r'^', include(router.urls)),
     re_path(r'^api/', include(router.urls))

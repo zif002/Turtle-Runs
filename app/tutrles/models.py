@@ -12,25 +12,16 @@ class Turtle(models.Model):
         verbose_name = u'Черепаха'
         verbose_name_plural = u'Черепахи'
     COLORS = (
-        (1, 'Белая'),
-        (2, 'Синяя'),
-        (3, 'Фиолетовая'),
-        (4, 'Желтая'),
-        (5, 'Красная'),
-        (6, 'Зеленая'),
-    )
-    COLORS_NAME = (
-        (1, 'white'),
-        (2, 'blue'),
-        (3, 'violet'),
-        (4, 'yellow'),
-        (5, 'red'),
-        (6, 'green'),
+        ('white', 'Белая'),
+        ('blue', 'Синяя'),
+        ('violet', 'Фиолетовая'),
+        ('yellow', 'Желтая'),
+        ('red', 'Красная'),
+        ('green', 'Зеленая'),
     )
     id_thurtle = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, verbose_name="Имя черепахи")
-    color_name =  models.IntegerField(choices=COLORS_NAME,  default=1, verbose_name="Цвет лат.")
-    color = models.IntegerField(choices=COLORS,  default=1, verbose_name="Цвет")
+    color = models.CharField(max_length=10, choices=COLORS, verbose_name="Цвет")
 
 
     def __str__(self):
